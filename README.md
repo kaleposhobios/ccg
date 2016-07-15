@@ -1,3 +1,3 @@
 # ccg
 
-Group programming training, working together to teach Swift.
+Group programming training, working with a group to teach them UIKit and Swift.
