@@ -54,9 +54,9 @@ class MenuViewController: UIViewController {
     }
 
     func searchPressed(sender: UIButton) {
-        if let nav = self.navigationController, string = searchField?.text {
+        if let nav = self.navigationController, searchField = searchField {
             let searchViewController = SearchResultsViewController()
-            searchViewController.searchString = string
+            searchViewController.searchString = searchField.text
             nav.pushViewController(searchViewController, animated: true)
         } else {
             fatalError("nothing is gonna happen you probably wanna fix it")
