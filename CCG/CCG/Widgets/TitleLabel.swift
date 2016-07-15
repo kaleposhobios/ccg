@@ -13,8 +13,7 @@ class TitleLabel : UILabel {
     init(frame: CGRect, title: String) {
         super.init(frame: frame)
         self.text = title
-        backgroundColor = .grayColor()
-        textColor = .blueColor()
+        textColor = .blackColor()
         lineBreakMode = .ByWordWrapping
         numberOfLines = 0
         textAlignment = .Center

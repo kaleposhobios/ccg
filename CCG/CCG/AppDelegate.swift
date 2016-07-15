@@ -18,7 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         let menuViewController = MenuViewController(nibName: nil, bundle: nil)
-        window?.rootViewController = menuViewController
+        let navigationController = UINavigationController(rootViewController: menuViewController)
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         return true
     }

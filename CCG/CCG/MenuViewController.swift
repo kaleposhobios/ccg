@@ -8,14 +8,23 @@
 
 import UIKit
 
+
 class MenuViewController: UIViewController {
 
+
+    var button1: UIButton?
+    var searchField: UITextField?
+
     override func viewDidLoad() {
+
         super.viewDidLoad()
         self.view.backgroundColor = .whiteColor()
         let width: CGFloat = 200
         let height: CGFloat = 200
-        let frame = CGRect(x: 0, y: 0, width: width, height: height)
+        let frame = CGRect(x: ((view.frame.size.width - width) / 2),
+                           y: 0,
+                           width:
+            width, height: height)
         let titleLabel: TitleLabel = TitleLabel(
             frame: frame,
             title: "Truveris - The CCG")
@@ -35,10 +44,23 @@ class MenuViewController: UIViewController {
         searchButton.setTitle("Search", forState: .Normal)
         view.addSubview(searchButton)
         searchButton.addTarget(self, action: #selector(searchPressed(_:)), forControlEvents: .TouchUpInside)
+
+        var frame4 = frame
+        frame4.origin.y = frame3.origin.y + frame3.size.height
+        frame4.size.height = 60
+        searchField = UITextField(frame: frame4)
+        searchField?.borderStyle = .RoundedRect
+        view.addSubview(searchField!)
     }
 
     func searchPressed(sender: UIButton) {
-        print("SEARCH PRESSED")
+        if let nav = self.navigationController, string = searchField?.text {
+            let searchViewController = SearchResultsViewController()
+            searchViewController.searchString = string
+            nav.pushViewController(searchViewController, animated: true)
+        } else {
+            fatalError("nothing is gonna happen you probably wanna fix it")
+        }
     }
 
 }
